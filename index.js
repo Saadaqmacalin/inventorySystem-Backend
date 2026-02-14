@@ -25,13 +25,43 @@ import connectDB from "./db/connectDB.js";
 // Middleware configuration
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5174", "http://127.0.0.1:5174", "http://localhost:5175", "http://127.0.0.1:5175"],
+    origin: [
+      "http://localhost:5173", 
+      "http://127.0.0.1:5173", 
+      "http://localhost:5174", 
+      "http://127.0.0.1:5174", 
+      "http://localhost:5175", 
+      "http://127.0.0.1:5175",
+      "https://mern-stack-inventory-system.vercel.app"
+    ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
   })
 );
 
 app.use(express.json());
+
+// Root route
+app.get("/", (req, res) => {
+  res.json({
+    message: "Inventory Management System API",
+    version: "1.0.0",
+    status: "running",
+    endpoints: {
+      users: "/api/users",
+      categories: "/api/categories",
+      products: "/api/products",
+      suppliers: "/api/suppliers",
+      customers: "/api/customers",
+      purchases: "/api/purchases",
+      sales: "/api/sales",
+      orders: "/api/orders",
+      reports: "/api/reports",
+      customerPortal: "/api/customer-portal",
+      import: "/api/import"
+    }
+  });
+});
 
 // Routes
 app.use("/api/users", userRouter);
