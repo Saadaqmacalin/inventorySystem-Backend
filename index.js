@@ -32,7 +32,8 @@ app.use(
       "http://127.0.0.1:5174", 
       "http://localhost:5175", 
       "http://127.0.0.1:5175",
-      "https://mern-stack-inventory-system.vercel.app"
+      "https://mern-stack-inventory-system.vercel.app",
+      "https://inventory-system-frontend-nu.vercel.app"
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
